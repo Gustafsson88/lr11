@@ -5,7 +5,7 @@
 Process::Process() {}
 
 void Process::out_help()
-{
+{ 
   std::string out_info;
   out_info = R"(Usage: builder [options]
 Allowed options:
