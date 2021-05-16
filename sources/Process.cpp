@@ -1,9 +1,6 @@
 // Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
 #include <Process.hpp>
 
-using namespace boost::process;
-using namespace boost::program_options;
-
 Process::Process() {}
 
 void Process::out_help()
@@ -40,13 +37,11 @@ void Process::start_process(bool _install, bool _pack, std::string _config,
     success = my_task("--build _builds --target package");
     if (!success)
       return;
-  }
-  else if (_install) {
+  } else if (_install) {
     success = my_task("--build _builds --target install");
     if (!success)
       return;
-  }
-  else if (_pack) {
+  } else if (_pack) {
     success = my_task("--build _builds --target package");
     if (!success)
       return;
@@ -58,7 +53,7 @@ bool Process::my_task(std::string task)
   auto cmake_path = boost::process::search_path("cmake");
 
   boost::process::ipstream stream;
-  child child(cmake_path.string() + " " + task,
+  boost::process::child child(cmake_path.string() + " " + task,
                   boost::process::std_out > stream);
   new_child = std::move(child);
 
