@@ -1,4 +1,4 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
 
 #include <gtest/gtest.h>
 
