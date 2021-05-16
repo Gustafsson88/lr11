@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
   bool pack = false;
   int timeout;
 
-  options_description desc("General options");
+  boost::program_options::options_description desc("General options");
   std::string task_type;
 
   desc.add_options()
@@ -20,10 +20,11 @@ int main(int argc, char **argv) {
       ("timeout",boost::program_options::value<int>()->
           default_value(100));
 
-  variables_map vm;
+  boost::program_options::variables_map vm;
   try
   {
-    parsed_options parsed = command_line_parser(argc, argv).options(desc).
+    boost::program_options::parsed_options parsed =
+        boost::program_options::command_line_parser(argc, argv).options(desc).
         allow_unregistered().run();
     store(parsed, vm);
 

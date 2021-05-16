@@ -1,6 +1,8 @@
 // Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
-
 #include <Process.hpp>
+
+using namespace boost::process;
+using namespace boost::program_options;
 
 Process::Process() {}
 
@@ -41,10 +43,10 @@ void Process::start_process(bool _install, bool _pack, std::string _config,
   }
   else if (_install) {
     success = my_task("--build _builds --target install");
-    if (!success) return;
+    if (!success)
+      return;
   }
-  else if (_pack)
-  {
+  else if (_pack) {
     success = my_task("--build _builds --target package");
     if (!success)
       return;
@@ -73,8 +75,9 @@ bool Process::my_task(std::string task)
   if (exit_code != 0) {
     std::cout << "Non zero exit code. Exiting..." << std::endl;
     return false;
-  } else
+  } else {
     return true;
+  }
 }
 
 void Process::timer(int time)
