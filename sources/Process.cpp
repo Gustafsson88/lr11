@@ -5,7 +5,7 @@
 Process::Process() {}
 
 void Process::out_help()
-{ 
+{
   std::string out_info;
   out_info = R"(Usage: builder [options]
 Allowed options:
@@ -30,7 +30,7 @@ void Process::start_process(bool _install, bool _pack, std::string _config,
   success = my_task("--build _builds");
   if (!success)
     return;
-  if(_install&&_pack)
+  if (_install&&_pack)
   {
     success = my_task("--build _builds --target install");
     if (!success)
