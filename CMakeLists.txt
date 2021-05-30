@@ -50,6 +50,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME}
+        Async++::Async++
         Boost::filesystem
         Boost::thread
         Boost::system

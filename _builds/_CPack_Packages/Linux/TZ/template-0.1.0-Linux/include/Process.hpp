@@ -7,12 +7,8 @@
 #include <string>
 
 #include <thread>
-#include <async++.h>
 #include <boost/process.hpp>
 #include <boost/program_options.hpp>
-
-using namespace boost::process;
-using namespace boost::program_options;
 
 class Process
 {
@@ -25,6 +21,6 @@ class Process
   bool my_task(std::string task);
   void out_help();
  private:
-  child new_child;
+  boost::process::child new_child;
 };
 #endif // INCLUDE_PROCESS_HPP_
