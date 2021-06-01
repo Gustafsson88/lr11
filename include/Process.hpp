@@ -1,4 +1,4 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.com>
 
 #ifndef INCLUDE_PROCESS_HPP_
 #define INCLUDE_PROCESS_HPP_

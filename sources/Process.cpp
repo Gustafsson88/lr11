@@ -1,4 +1,4 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.com>
 #include <Process.hpp>
 
 Process::Process() {}
@@ -23,7 +23,8 @@ void Process::start_process(bool _install, bool _pack, std::string _config,
   std::thread{std::bind(&Process::timer, this, _time)}.detach();
   bool success;
   auto task = async::spawn([this, &success, &_config] {
-      success = my_task( "-H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=" +
+      success = my_task( "-H. -B_builds -DCMAKE_INSTALL_PREFIX=_install "
+        "-DCMAKE_BUILD_TYPE=" +
                _config);
   });
   task.wait();
